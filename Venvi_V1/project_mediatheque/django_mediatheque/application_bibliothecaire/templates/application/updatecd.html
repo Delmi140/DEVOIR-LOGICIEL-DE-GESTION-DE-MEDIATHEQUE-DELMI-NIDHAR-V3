@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Modifier un cd</title>
+</head>
+<body>
+    <div>
+      <h3>Modifier un cd!</h3>
+      <form action="" method="post" novalidate>
+      {% csrf_token %}
+      {{ updateCd }}
+      <input type="submit" value="Envoyer">
+      </form>
+
+    </div>
+</body>
+</html>

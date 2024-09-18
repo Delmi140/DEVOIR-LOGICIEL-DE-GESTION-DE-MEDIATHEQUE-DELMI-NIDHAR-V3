@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Modifier le membre</title>
+</head>
+<body>
+    <div>
+      <h3>Modifier le membre!</h3>
+      <form action="" method="post" novalidate>
+      {% csrf_token %}
+      {{ updateMembre }}
+      <input type="submit" value="Envoyer">
+      </form>
+
+    </div>
+</body>
+</html>

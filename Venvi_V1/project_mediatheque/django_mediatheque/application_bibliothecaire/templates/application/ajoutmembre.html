@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ajout d'un membre</title>
+</head>
+<body>
+  <div>
+          <h3>Ajout d'un membre</h3>
+
+          <form action="" method="post" novalidate>
+          {% csrf_token %}
+          {{ creationMembre }}
+          <input type="submit" value="Envoyer">
+</form>
+
+
+
+  </div>
+</body>
+</html>

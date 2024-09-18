@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Application Notre livre, notre média</title>
+</head>
+<body>
+
+    <div class="container home">
+        <h1>Bienvenue, {{ user.username }}!</h1>
+    </div>
+
+    <div>
+        <h2>Application bibliothecaire</h2>
+    </div>
+    <div>
+        <div>
+            <h3>Membre</h3>
+        </div>
+        <div>
+            <h4>Liste des membres</h4>
+            <ul>
+            {% for membre in membres %}
+            <li> Nom : {{ membre.nom }} | Prenom : {{ membre.prenom }} | Nombre d'emprunt : {{ membre.Emprunt }}</li>
+            {% endfor %}
+            </ul>
+        </div>
+    </div>
+    <div>
+        <div>
+            <h3>Médiathèque</h3>
+        </div>
+        <div>
+            <h4>Liste des Livres</h4>
+             <ul>
+            {% for livre in livres %}
+             <li> Nom : {{ livre.name }} | Auteur : {{ livre.auteur}} | Disponible : {{livre.disponible}} | Date d'emprunt : {{livre.dateEmprunt}} | Emprunteur : {{ livre.emprunteur }} </li>
+            {% endfor %}
+            </ul>
+
+        </div>
+        <div>
+            <h4>Liste des CD</h4>
+             <ul>
+            {% for cd in cds %}
+             <li> Nom : {{ cd.name }} | Auteur : {{ cd.auteur}} | Disponible : {{cd.disponible}} |  Date d'emprunt : {{ cd.dateEmprunt}} | Emprunteur : {{ cd.emprunteur }} </li>
+            {% endfor %}
+            </ul>
+
+        </div>
+        <div>
+            <h4>Liste des DVD</h4>
+            <ul>
+            {% for dvd in dvds %}
+            <li> Nom : {{ dvd.name }} | Auteur : {{ dvd.auteur}} | Disponible : {{dvd.disponible}} |  Date d'emprunt : {{ dvd.dateEmprunt}} | Emprunteur : {{ dvd.emprunteur }}  </li>
+            {% endfor %}
+          </ul>
+        </div>
+        <div>
+             <h4>Liste des Jeux De Plateau</h4>
+             <ul>
+             {% for jdp in jdps %}
+             <li> Nom : {{ jdp.name }} | Createur: {{ jdp.createur }}   </li>
+                {% endfor %}
+             </ul>
+        </div>
+    </div>
+<div>
+    <h5>Bouton de déconnexion de l'application</h5>
+    <button><a href="{% url 'deconnexion' %}">Déconnexion</a></button>
+</div>
+
+
+</body>
+</html>
