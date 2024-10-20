@@ -15,15 +15,58 @@
     </div>
     <div>
         <div>
+            <h4>Liens vers la page Application Bibliothécaire</h4>
+        </div>
+        <div>
+            <p>Lien vers la page Application Bibliothécaire :<a href="http://127.0.0.1:8000/AppBibliothecaire/"><button>Lien</button></a></p>
+        </div>
+        </div>
+    <div>
+        <div>
             <h3>Membre</h3>
         </div>
         <div>
             <h4>Liste des membres</h4>
-            <ul>
-            {% for membre in membres %}
-            <li> Nom : {{ membre.nom }} | Prenom : {{ membre.prenom }} | Nombre d'emprunt : {{ membre.Emprunt }}</li>
-            {% endfor %}
-            </ul>
+        </div>
+        <div >
+            <table style="border: 1px solid black; ">
+                <thead>
+                    <tr>
+                        <th style="border: 1px solid black" >Nom</th>
+                        <th style="border: 1px solid black">Prenom</th>
+                        <th style="border: 1px solid black">Nombre d'emprunt</th>
+                        <th style="border: 1px solid black">UpDate</th>
+                        <th style="border: 1px solid black">Delete</th>
+                    </tr>
+                </thead>
+                <tbody>
+                     {% for membre in membres %}
+                     <tr class="align-middle">
+                         <td style="border: 1px solid black" >{{ membre.nom }}</td>
+                         <td style="border: 1px solid black" >{{ membre.prenom }}</td>
+                         <td style="border: 1px solid black" >{{ membre.Emprunt }}</td>
+                         <td style="border: 1px solid black" >
+                             <form action="http://127.0.0.1:8000/updatemembre/{{ membre.id }}" method="get">
+                                <input type="submit" value="UpDate">
+                             </form>
+                         </td>
+                         <td style="border: 1px solid black" >
+                             <form action="http://127.0.0.1:8000/AppBibliothecaire/{{ membre.id }}" method="get">
+                                <input type="submit" value="Delete">
+                             </form>
+                         </td>
+                     </tr>
+                     {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <div>
+            <div>
+                <h4>Liens pour créer un membre</h4>
+            </div>
+            <div>
+                <p>Lien vers la page pour créer un membre :<a href="http://127.0.0.1:8000/ajoutmembre/"><button>Lien</button></a></p>
+            </div>
         </div>
     </div>
     <div>
@@ -32,39 +75,188 @@
         </div>
         <div>
             <h4>Liste des Livres</h4>
-             <ul>
-            {% for livre in livres %}
-             <li> Nom : {{ livre.name }} | Auteur : {{ livre.auteur}} | Disponible : {{livre.disponible}} | Date d'emprunt : {{livre.dateEmprunt}} | Emprunteur : {{ livre.emprunteur }} </li>
-            {% endfor %}
-            </ul>
-
+        </div>
+        <div >
+            <table style="border: 1px solid black; ">
+                <thead>
+                    <tr>
+                        <th style="border: 1px solid black" >Nom</th>
+                        <th style="border: 1px solid black">Auteur</th>
+                        <th style="border: 1px solid black">Disponible</th>
+                        <th style="border: 1px solid black">Date d'emprunt</th>
+                        <th style="border: 1px solid black" >Emprunteur</th>
+                        <th style="border: 1px solid black">UpDate</th>
+                        <th style="border: 1px solid black">Delete</th>
+                    </tr>
+                </thead>
+                <tbody>
+                     {% for livre in livres %}
+                     <tr class="align-middle">
+                         <td style="border: 1px solid black" >{{ livre.name }}</td>
+                         <td style="border: 1px solid black" >{{ livre.auteur}}</td>
+                         <td style="border: 1px solid black" >{{livre.disponible}}</td>
+                         <td style="border: 1px solid black" >{{livre.dateEmprunt}}</td>
+                         <td style="border: 1px solid black" >{{ livre.emprunteur }}</td>
+                         <td style="border: 1px solid black" >
+                             <form action="http://127.0.0.1:8000/updatelivre/{{ livre.id }}" method="get">
+                                <input type="submit" value="UpDate">
+                             </form>
+                         </td>
+                         <td style="border: 1px solid black" >
+                             <form action="http://127.0.0.1:8000/AppBibliothecaire/{{ livre.id }}" method="get">
+                                <input type="submit" value="Delete">
+                             </form>
+                         </td>
+                     </tr>
+                     {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <div>
+            <div>
+                <h4>Liens pour créer un livre</h4>
+            </div>
+            <div>
+                <p>Lien vers la page pour créer un livre :<a href="http://127.0.0.1:8000/ajoutlivre/"><button>Lien</button></a></p>
+            </div>
         </div>
         <div>
             <h4>Liste des CD</h4>
-             <ul>
-            {% for cd in cds %}
-             <li> Nom : {{ cd.name }} | Auteur : {{ cd.auteur}} | Disponible : {{cd.disponible}} |  Date d'emprunt : {{ cd.dateEmprunt}} | Emprunteur : {{ cd.emprunteur }} </li>
-            {% endfor %}
-            </ul>
-
+        </div>
+        <div >
+            <table style="border: 1px solid black; ">
+                <thead>
+                    <tr>
+                        <th style="border: 1px solid black" >Nom</th>
+                        <th style="border: 1px solid black">Auteur</th>
+                        <th style="border: 1px solid black">Disponible</th>
+                        <th style="border: 1px solid black">Date d'emprunt</th>
+                        <th style="border: 1px solid black" >Emprunteur</th>
+                        <th style="border: 1px solid black">UpDate</th>
+                        <th style="border: 1px solid black">Delete</th>
+                    </tr>
+                </thead>
+                <tbody>
+                     {% for cd in cds %}
+                     <tr class="align-middle">
+                         <td style="border: 1px solid black" >{{ cd.name }}</td>
+                         <td style="border: 1px solid black" >{{ cd.auteur }}</td>
+                         <td style="border: 1px solid black" >{{ cd.disponible }}</td>
+                         <td style="border: 1px solid black" >{{ cd.dateEmprunt }}</td>
+                         <td style="border: 1px solid black" >{{ cd.emprunteur }}</td>
+                         <td style="border: 1px solid black" >
+                             <form action="http://127.0.0.1:8000/updatecd/{{ cd.id }}" method="get">
+                                <input type="submit" value="UpDate">
+                             </form>
+                         </td>
+                         <td style="border: 1px solid black" >
+                             <form action="http://127.0.0.1:8000/AppBibliothecaire/{{ cd.id }}" method="get">
+                                <input type="submit" value="Delete">
+                             </form>
+                         </td>
+                     </tr>
+                     {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <div>
+            <div>
+                <h4>Liens pour créer un CD</h4>
+            </div>
+            <div>
+                <p>Lien vers la page pour créer un CD :<a href="http://127.0.0.1:8000/ajoutcd/"><button>Lien</button></a></p>
+            </div>
         </div>
         <div>
             <h4>Liste des DVD</h4>
-            <ul>
-            {% for dvd in dvds %}
-            <li> Nom : {{ dvd.name }} | Auteur : {{ dvd.auteur}} | Disponible : {{dvd.disponible}} |  Date d'emprunt : {{ dvd.dateEmprunt}} | Emprunteur : {{ dvd.emprunteur }}  </li>
-            {% endfor %}
-          </ul>
+        </div>
+        <div >
+            <table style="border: 1px solid black; ">
+                <thead>
+                    <tr>
+                        <th style="border: 1px solid black" >Nom</th>
+                        <th style="border: 1px solid black">Auteur</th>
+                        <th style="border: 1px solid black">Disponible</th>
+                        <th style="border: 1px solid black">Date d'emprunt</th>
+                        <th style="border: 1px solid black" >Emprunteur</th>
+                        <th style="border: 1px solid black">UpDate</th>
+                        <th style="border: 1px solid black">Delete</th>
+                    </tr>
+                </thead>
+                <tbody>
+                     {% for dvd in dvds %}
+                     <tr class="align-middle">
+                         <td style="border: 1px solid black" >{{ dvd.name }}</td>
+                         <td style="border: 1px solid black" >{{ dvd.auteur }}</td>
+                         <td style="border: 1px solid black" >{{ dvd.disponible }}</td>
+                         <td style="border: 1px solid black" >{{ dvd.dateEmprunt }}</td>
+                         <td style="border: 1px solid black" >{{ dvd.emprunteur }}</td>
+                         <td style="border: 1px solid black" >
+                             <form action="http://127.0.0.1:8000/updatedvd/{{ dvd.id }}" method="get">
+                                <input type="submit" value="UpDate">
+                             </form>
+                         </td>
+                         <td style="border: 1px solid black" >
+                             <form action="http://127.0.0.1:8000/AppBibliothecaire/{{ dvd.id }}" method="get">
+                                <input type="submit" value="Delete">
+                             </form>
+                         </td>
+                     </tr>
+                     {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <div>
+            <div>
+                <h4>Liens pour créer un DVD</h4>
+            </div>
+            <div>
+                <p>Lien vers la page pour créer un DVD :<a href="http://127.0.0.1:8000/ajoutdvd/"><button>Lien</button></a></p>
+            </div>
         </div>
         <div>
              <h4>Liste des Jeux De Plateau</h4>
-             <ul>
-             {% for jdp in jdps %}
-             <li> Nom : {{ jdp.name }} | Createur: {{ jdp.createur }}   </li>
-                {% endfor %}
-             </ul>
+        </div>
+        <div >
+            <table style="border: 1px solid black; ">
+                <thead>
+                    <tr>
+                        <th style="border: 1px solid black" >Nom</th>
+                        <th style="border: 1px solid black">Createur</th>
+                        <th style="border: 1px solid black">UpDate</th>
+                        <th style="border: 1px solid black">Delete</th>
+                    </tr>
+                </thead>
+                <tbody>
+                     {% for jdp in jdps %}
+                     <tr class="align-middle">
+                         <td style="border: 1px solid black" >{{ jdp.name }}</td>
+                         <td style="border: 1px solid black" >{{ jdp.createur }}</td>
+                         <td style="border: 1px solid black" >
+                             <form action="http://127.0.0.1:8000/updatejdp/{{ jdp.id }}" method="get">
+                                <input type="submit" value="UpDate">
+                             </form>
+                         </td>
+                         <td style="border: 1px solid black" >
+                             <form action="http://127.0.0.1:8000/AppBibliothecaire/{{ jdp.id }}" method="get">
+                                <input type="submit" value="Delete">
+                             </form>
+                         </td>
+                     </tr>
+                     {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <div>
+            <div>
+                <h4>Liens pour créer un Jeux de Plateau</h4>
+            </div>
+            <div>
+                <p>lien vers la page pour créer un Jeux de Plateau :<a href="http://127.0.0.1:8000/ajoutjdp/"><button>Lien</button></a></p>
+            </div>
         </div>
     </div>
+
 <div>
     <h5>Bouton de déconnexion de l'application</h5>
     <button><a href="{% url 'deconnexion' %}">Déconnexion</a></button>
